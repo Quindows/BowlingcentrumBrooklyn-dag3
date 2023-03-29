@@ -9,6 +9,8 @@
             <th>Datum</th>
             <th>Aantal Volwassenen</th>
             <th>Aantal Kinderen</th>
+            <th>Pakket</th>
+            <th>Wijzigen</th>
         </thead>
         <tbody>
             <?= $data['rows']; ?>

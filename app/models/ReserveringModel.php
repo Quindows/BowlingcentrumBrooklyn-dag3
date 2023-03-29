@@ -39,6 +39,7 @@ class ReserveringModel{
         // error catcher
         try{
             $this->db->query('SELECT 
+                                res.Id as id,
                                 per.Voornaam as voornaam,
                                 per.Tussenvoegsel as tussenvoegsel,
                                 per.Achternaam as achternaam,
@@ -59,4 +60,12 @@ class ReserveringModel{
         }
     }
     
+    public function updatePakketOptie($data, $id){
+        $this->db->query('UPDATE reservering
+                        set PakketOptieId = :optie
+                        where Id = :id;');
+        $this->db->bind('id', $id, PDO::PARAM_INT);
+        $this->db->bind(':optie', $data['optiepakket'], PDO::PARAM_INT);
+        return $this->db->execute();
+    }
 }
