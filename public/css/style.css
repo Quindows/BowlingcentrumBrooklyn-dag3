@@ -4,12 +4,17 @@ body {
 
 table,
 td,
-th {
+th,
+caption {
   border: 1px solid black;
 }
 
 table {
   border-collapse: collapse;
+}
+
+caption {
+  text-align: start;
 }
 
 div.reserveringTitel {

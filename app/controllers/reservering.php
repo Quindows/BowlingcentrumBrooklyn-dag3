@@ -49,4 +49,44 @@ class Reservering extends controller{
         $this->view('reservering/index', $data);
 
    }   
+
+    public function pakketOptieOverzicht(){
+        $records = $this->model->pakketoptieOverzicht(1);
+
+        $rows = '';
+        // checkt of er reservaties zijn
+        if($records == null){
+            $rows .= "<h2>Geen reserveringen</h2>";
+        } else {
+            foreach($records as $value){
+                // zorgt dat wanneer tussenvoegsel leeg is, er geen error komt
+                if($value->tussenvoegsel == null){
+                    $value->tussenvoegsel = ' ';
+                }
+
+                // zorgt dat wanneer kinderen leeg is, er geen error komt
+                if($value->kinderen == null){
+                    $value->kinderen = 'geen';
+                }
+
+                $rows .= "
+                <tr>
+                    <td>$value->voornaam</td>
+                    <td>$value->tussenvoegsel</td>
+                    <td>$value->achternaam</td>
+                    <td>$value->datum</td>
+                    <td>$value->volwassenen</td>
+                    <td>$value->kinderen</td>
+                </tr>";
+            }
+        }
+
+        // array voor alle data om mee te sturen naar de view
+        $data = [
+            'rows' => $rows
+        ];
+
+        // redirect naar de view
+        $this->view('reservering/pakketOptieOverzicht', $data);
+   }
 }
