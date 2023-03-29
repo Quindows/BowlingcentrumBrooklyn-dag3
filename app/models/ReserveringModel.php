@@ -68,4 +68,12 @@ class ReserveringModel{
         $this->db->bind(':optie', $data['optiepakket'], PDO::PARAM_INT);
         return $this->db->execute();
     }
+
+    public function findKinderen($id){
+        $this->db->query('SELECT AantalKinderen 
+                        from reservering
+                        where Id = :id;');
+        $this->db->bind(':id', $id, PDO::PARAM_INT);
+        return $this->db->single();
+    }
 }
