@@ -48,7 +48,5 @@ class Reservering extends controller{
         // redirect naar de view
         $this->view('reservering/index', $data);
 
-   }
-
-   
+   }   
 }
