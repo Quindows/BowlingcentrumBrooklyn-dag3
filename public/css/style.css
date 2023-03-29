@@ -1,0 +1,20 @@
+body {
+  font-family: sans-serif;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+div.reserveringTitel {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
