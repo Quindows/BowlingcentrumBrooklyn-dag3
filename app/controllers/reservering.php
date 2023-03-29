@@ -49,4 +49,6 @@ class Reservering extends controller{
         $this->view('reservering/index', $data);
 
    }
+
+   
 }
